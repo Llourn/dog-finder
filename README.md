@@ -2,7 +2,7 @@
 
 ## Description
 
-This app was created to provide a user access to search for adoptable pets with the ability to see their location. It uses the Petfinder API and the Google maps API:
+This app was created to provide a user access to search for adoptable pets with the ability to see their location. The user is able to search for and display pets based on characteristics like type, breed, size, gender, etc. It uses the Petfinder API and the Google maps API:
 https://www.petfinder.com/developers/v2/docs/#api-calls
 https://developers.google.com/maps/
 
