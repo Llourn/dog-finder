@@ -17,7 +17,5 @@ export class Animals {
   special_needs;
   location;
   distance;
-  before;
-  after;
   sort;
 }
