@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.2.0/dist/themes/light.css"
     />
+    <link rel="stylesheet" href="./styles/details.css" />
     <script
       type="module"
       src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.2.0/dist/shoelace.js"
@@ -17,6 +18,23 @@
   <body>
     <sl-carousel id="carousel" pagination navigation mouse-dragging loop>
     </sl-carousel>
+    <sl-divider style="--width: 4px"></sl-divider>
+    <main class="container">
+      <sl-card class="card-basic">
+        <h2 id="animal-name"></h2>
+        <sl-divider></sl-divider>
+        <a id="adoption-link" href=""></a>
+        <p id="info-1"></p>
+        <p id="info-2"></p>
+        <div class="info-3"></div>
+        <div class="description"></div>
+      </sl-card>
+    </main>
     <script src="./scripts/details.js"></script>
   </body>
+  <style>
+    * {
+      font-family: var(--sl-font-sans);
+    }
+  </style>
 </html>

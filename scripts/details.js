@@ -141,6 +141,14 @@ const data = {
 };
 
 let carouselElement = document.getElementById("carousel");
+let animalNameElement = document.getElementById("animal-name");
+let adoptionLinkElement = document.getElementById("adoption-link");
+let info1Element = document.getElementById("info-1");
+let info2Element = document.getElementById("info-2");
+let info3Element = document.getElementById("info-3");
+let descriptionElement = document.getElementById("description");
+
+animalNameElement.textContent = data.name;
 
 function generateCarousel() {
   let carouselItemsHtml = "";
