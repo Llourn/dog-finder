@@ -1,3 +1,16 @@
 html {
   font-family: var(--sl-font-sans);
 }
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-bottom: 2px solid;
+  margin-bottom: 10px
+}
+
+.doggo{
+  display: flex;
+  align-items: center;
+}

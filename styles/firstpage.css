@@ -1,0 +1,11 @@
+.puppies{
+    object-fit: cover;
+    height: 600px;
+    width: 100%;
+    object-position: bottom;
+  }
+  
+  .main-text {
+    display: flex;
+    justify-content: center;
+  }
