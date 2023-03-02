@@ -1,8 +1,3 @@
-// This is here purely for testing data persistance via session storage.
-// import animalsMockData from "./data/animals.js";
-// sessionStorage.setItem("animalsData", JSON.stringify(animalsMockData));
-// sessionStorage.setItem("animalIndex", JSON.stringify(8));
-
 const mockData = {
   id: 60275915,
   organization_id: "CA2932",
