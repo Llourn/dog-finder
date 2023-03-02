@@ -22,24 +22,26 @@
     <sl-divider style="--width: 4px"></sl-divider>
     <main class="container">
       <sl-card class="card-basic">
-        <h2 id="animal-name"></h2>
-        <sl-divider></sl-divider>
-        <p id="info-1"></p>
-        <p id="info-2"></p>
-        <div id="info-3"></div>
-        <div id="description"></div>
-        <a id="adoption-link" href="" target="_blank"></a>
+        <div class="animal-info">
+          <h2 id="animal-name"></h2>
+          <sl-divider></sl-divider>
+          <p id="pet-type"></p>
+          <p id="physical-characteristics"></p>
+          <div id="about"></div>
+          <div id="description"></div>
+          <a id="adoption-link" href="" target="_blank"></a>
+        </div>
+        <div class="map">
+          <iframe
+            id="map"
+            width="600"
+            height="450"
+            style="border: 0"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
       </sl-card>
-      <div class="map">
-        <iframe
-          id="map"
-          width="600"
-          height="450"
-          style="border: 0"
-          loading="lazy"
-          allowfullscreen
-        ></iframe>
-      </div>
     </main>
     <script src="./scripts/details.js"></script>
     <script
