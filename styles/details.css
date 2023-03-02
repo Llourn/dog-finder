@@ -1,4 +1,4 @@
-#animal-name {
+.animal-info h2 {
   margin-top: 0;
 }
 
@@ -15,15 +15,19 @@
   --scroll-hint: 75px;
 }
 
-main {
+.card-basic {
+  width: 100%;
+}
+
+.animal-info-container {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
 }
 
-main > * {
-  flex: 1 0 600px;
+.animal-info-container > * {
+  flex: 1 1 500px;
 }
 
 .map {

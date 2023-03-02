@@ -1,4 +1,4 @@
-const data = {
+const mockData = {
   id: 60275915,
   organization_id: "CA2932",
   url: "https://www.petfinder.com/dog/papi-60275915/ca/san-jose/amazing-dogs-ca2932/?referrer_id=1dadc00f-98d6-4dc4-91ae-fa9f8619779f",
@@ -140,80 +140,135 @@ const data = {
   },
 };
 
-let carouselElement = document.getElementById("carousel");
-let animalNameElement = document.getElementById("animal-name");
-let adoptionLinkElement = document.getElementById("adoption-link");
-let info1Element = document.getElementById("info-1");
-let info2Element = document.getElementById("info-2");
-let info3Element = document.getElementById("info-3");
-let descriptionElement = document.getElementById("description");
-let mapElement = document.getElementById("map");
+let data;
 
-animalNameElement.textContent = data.name;
-let mapSrc = `https://www.google.com/maps/embed/v1/place?q=${data.contact.address.city}%20${data.contact.address.state}&key=AIzaSyDy2pTEnbM1IbAmDBgm6lHtIq3xrXUfSwU`;
-mapElement.setAttribute("src", mapSrc);
+let carouselEl = document.getElementById("carousel");
+let animalNameEl = document.getElementById("animal-name");
+let adoptionLinkEl = document.getElementById("adoption-link");
+let petTypeEl = document.getElementById("pet-type");
+let physicalCharacteristicsEl = document.getElementById(
+  "physical-characteristics"
+);
+let aboutEl = document.getElementById("about");
+let descriptionEl = document.getElementById("description");
+let mapEl = document.getElementById("map");
 
-function generateCarousel() {
-  let carouselItemsHtml = "";
-  data.photos.forEach((photo) => {
-    carouselItemsHtml += /*html*/ `
-    <sl-carousel-item>
-      <img
-        src="${photo.full}"
-      />
-    </sl-carousel-item>
+init();
+renderName();
+renderCarousel();
+renderAdoptionLink();
+renderPetType();
+renderPhysicalCharacteristics();
+renderAbout();
+renderDescription();
+renderMap();
+
+// Check for data in session storage and load animal. If session storage doesn't exist load Papi. 🐕
+function init() {
+  const animalsData = JSON.parse(sessionStorage.getItem("animalsData"));
+  const animalIndex = JSON.parse(sessionStorage.getItem("animalIndex"));
+  const animalData = animalsData?.animals[animalIndex];
+  if (animalData) {
+    data = animalData;
+  } else {
+    data = mockData;
+  }
+}
+
+// Rendering functions
+
+function renderCarousel() {
+  let carouselHtml = "";
+
+  if (data.photos?.length) {
+    carouselHtml += /*html*/ `
+      <div>
+        <sl-carousel pagination navigation mouse-dragging loop>
     `;
-  });
-  carouselElement.innerHTML = carouselItemsHtml;
+
+    data.photos.forEach((photo) => {
+      carouselHtml += /*html*/ `
+      <sl-carousel-item>
+        <img
+        src="${photo.full}"
+        />
+      </sl-carousel-item>
+      `;
+    });
+
+    carouselHtml += /*html*/ `
+        </sl-carousel>
+      </div>
+      `;
+
+    carouselEl.innerHTML = carouselHtml;
+  }
 }
 
-function generateAdoptionLink() {
-  adoptionLinkElement.setAttribute("href", data.url);
-  adoptionLinkElement.textContent =
-    "Click here to learn more about " + data.name + ".";
+function renderName() {
+  animalNameEl.textContent = data.name;
 }
 
-function generateInfo1Element() {
+function renderAdoptionLink() {
+  adoptionLinkEl.setAttribute("href", data.url);
+  adoptionLinkEl.textContent = `Click here to learn more about ${data.name}.`;
+}
+
+function renderPetType() {
   let text = "";
   if (data.breeds.unknown) {
     text = "Unknown";
   } else {
     if (data.breeds.primary) text += data.breeds.primary;
-    if (data.breeds.secondary) text += " & " + data.breeds.secondary;
+    if (data.breeds.secondary) text += ` & ${data.breeds.secondary}`;
     if (data.breeds.mixed) text += " Mix";
     if (data.contact.address.city)
-      text +=
-        " - " + data.contact.address.city + ", " + data.contact.address.state;
+      text += ` - ${data.contact.address.city}, ${data.contact.address.state}`;
   }
-  info1Element.textContent = text;
+  petTypeEl.textContent = text;
 }
 
-function generateInfo2Element() {
+function renderPhysicalCharacteristics() {
   let text = "";
   text += data.age;
-  text += " - " + data.gender;
-  text += " - " + data.size;
-  text += " - " + data.colors.primary;
-  info2Element.textContent = text;
+  text += ` - ${data.gender}`;
+  text += ` - ${data.size}`;
+  text += ` - ${data.colors.primary}`;
+  physicalCharacteristicsEl.textContent = text;
 }
 
-function generateInfo3Element() {
-  let text = `
+function renderAbout() {
+  let html = `
     ${data.coat ? `<p>Coat length: ${data.coat}</p>` : ""}
     ${data.attributes.house_trained ? `<p>House-trained: Yes</p>` : ""}
+    ${petHealthItems()?.length ? `<p>Health: ${petHealthItems()}</p>` : ""}
     ${
-      generatePetHealth()?.length ? `<p>Health: ${generatePetHealth()}</p>` : ""
-    }
-    ${
-      generateGoodInAHomeWith()?.length
-        ? `<p>Good in a home with: ${generateGoodInAHomeWith()}</p>`
+      goodInHomeWithItems()?.length
+        ? `<p>Good in a home with: ${goodInHomeWithItems()}</p>`
         : ""
     }
   `;
-  info3Element.innerHTML = text;
+  aboutEl.innerHTML = html;
 }
 
-function generatePetHealth() {
+function renderDescription() {
+  let html = /*html*/ `
+    <h3>Description</h3>
+    <p>${data.description}</p>
+  `;
+
+  descriptionEl.innerHTML = html;
+}
+
+function renderMap() {
+  let mapSrc = `https://www.google.com/maps/embed/v1/place?q=${data.contact.address.city}%20${data.contact.address.state}&key=AIzaSyDy2pTEnbM1IbAmDBgm6lHtIq3xrXUfSwU`;
+  mapEl.setAttribute("src", mapSrc);
+}
+
+// Utility functions
+
+// Creates a string of health items if they exist.
+function petHealthItems() {
   let items = [];
   for (const prop in data.attributes) {
     if (Object.hasOwnProperty.call(data.attributes, prop)) {
@@ -229,7 +284,8 @@ function generatePetHealth() {
   return items.join(", ");
 }
 
-function generateGoodInAHomeWith() {
+// Creates a string of 'Good in a home with' items if they exist
+function goodInHomeWithItems() {
   let items = [];
   for (const prop in data.environment) {
     if (Object.hasOwnProperty.call(data.environment, prop)) {
@@ -243,19 +299,3 @@ function generateGoodInAHomeWith() {
   }
   return items.join(", ");
 }
-
-function generateDescription() {
-  let text = /*html*/ `
-    <h3>Description</h3>
-    <p>${data.description}</p>
-  `;
-
-  descriptionElement.innerHTML = text;
-}
-
-generateCarousel();
-generateAdoptionLink();
-generateInfo1Element();
-generateInfo2Element();
-generateInfo3Element();
-generateDescription();
