@@ -1,4 +1,9 @@
-const data = {
+// This is here purely for testing data persistance via session storage.
+// import animalsMockData from "./data/animals.js";
+// sessionStorage.setItem("animalsData", JSON.stringify(animalsMockData));
+// sessionStorage.setItem("animalIndex", JSON.stringify(8));
+
+const mockData = {
   id: 60275915,
   organization_id: "CA2932",
   url: "https://www.petfinder.com/dog/papi-60275915/ca/san-jose/amazing-dogs-ca2932/?referrer_id=1dadc00f-98d6-4dc4-91ae-fa9f8619779f",
@@ -140,6 +145,8 @@ const data = {
   },
 };
 
+let data;
+
 let carouselEl = document.getElementById("carousel");
 let animalNameEl = document.getElementById("animal-name");
 let adoptionLinkEl = document.getElementById("adoption-link");
@@ -151,6 +158,7 @@ let aboutEl = document.getElementById("about");
 let descriptionEl = document.getElementById("description");
 let mapEl = document.getElementById("map");
 
+init();
 renderName();
 renderCarousel();
 renderAdoptionLink();
@@ -159,6 +167,18 @@ renderPhysicalCharacteristics();
 renderAbout();
 renderDescription();
 renderMap();
+
+// Check for data in session storage and load animal. If session storage doesn't exist load Papi. 🐕
+function init() {
+  const animalsData = JSON.parse(sessionStorage.getItem("animalsData"));
+  const animalIndex = JSON.parse(sessionStorage.getItem("animalIndex"));
+  const animalData = animalsData?.animals[animalIndex];
+  if (animalData) {
+    data = animalData;
+  } else {
+    data = mockData;
+  }
+}
 
 // Rendering functions
 
@@ -169,7 +189,6 @@ function renderCarousel() {
     carouselHtml += /*html*/ `
       <div>
         <sl-carousel pagination navigation mouse-dragging loop>
-        
     `;
 
     data.photos.forEach((photo) => {
