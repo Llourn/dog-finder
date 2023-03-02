@@ -147,8 +147,11 @@ let info1Element = document.getElementById("info-1");
 let info2Element = document.getElementById("info-2");
 let info3Element = document.getElementById("info-3");
 let descriptionElement = document.getElementById("description");
+let mapElement = document.getElementById("map");
 
 animalNameElement.textContent = data.name;
+let mapSrc = `https://www.google.com/maps/embed/v1/place?q=${data.contact.address.city}%20${data.contact.address.state}&key=AIzaSyDy2pTEnbM1IbAmDBgm6lHtIq3xrXUfSwU`;
+mapElement.setAttribute("src", mapSrc);
 
 function generateCarousel() {
   let carouselItemsHtml = "";
@@ -164,4 +167,95 @@ function generateCarousel() {
   carouselElement.innerHTML = carouselItemsHtml;
 }
 
+function generateAdoptionLink() {
+  adoptionLinkElement.setAttribute("href", data.url);
+  adoptionLinkElement.textContent =
+    "Click here to learn more about " + data.name + ".";
+}
+
+function generateInfo1Element() {
+  let text = "";
+  if (data.breeds.unknown) {
+    text = "Unknown";
+  } else {
+    if (data.breeds.primary) text += data.breeds.primary;
+    if (data.breeds.secondary) text += " & " + data.breeds.secondary;
+    if (data.breeds.mixed) text += " Mix";
+    if (data.contact.address.city)
+      text +=
+        " - " + data.contact.address.city + ", " + data.contact.address.state;
+  }
+  info1Element.textContent = text;
+}
+
+function generateInfo2Element() {
+  let text = "";
+  text += data.age;
+  text += " - " + data.gender;
+  text += " - " + data.size;
+  text += " - " + data.colors.primary;
+  info2Element.textContent = text;
+}
+
+function generateInfo3Element() {
+  let text = `
+    ${data.coat ? `<p>Coat length: ${data.coat}</p>` : ""}
+    ${data.attributes.house_trained ? `<p>House-trained: Yes</p>` : ""}
+    ${
+      generatePetHealth()?.length ? `<p>Health: ${generatePetHealth()}</p>` : ""
+    }
+    ${
+      generateGoodInAHomeWith()?.length
+        ? `<p>Good in a home with: ${generateGoodInAHomeWith()}</p>`
+        : ""
+    }
+  `;
+  info3Element.innerHTML = text;
+}
+
+function generatePetHealth() {
+  let items = [];
+  for (const prop in data.attributes) {
+    if (Object.hasOwnProperty.call(data.attributes, prop)) {
+      const element = data.attributes[prop];
+      if (element) {
+        if (prop === "spayed_neutered") items.push("spayed / neutered");
+        if (prop === "declawed") items.push(prop);
+        if (prop === "special_needs") items.push("special needs");
+        if (prop === "shots_current") items.push("vaccinations up to date");
+      }
+    }
+  }
+  return items.join(", ");
+}
+
+function generateGoodInAHomeWith() {
+  let items = [];
+  for (const prop in data.environment) {
+    if (Object.hasOwnProperty.call(data.environment, prop)) {
+      const element = data.environment[prop];
+      if (element) {
+        if (prop === "children") items.push("children");
+        if (prop === "dogs") items.push("other dogs");
+        if (prop === "cats") items.push("cats");
+      }
+    }
+  }
+  return items.join(", ");
+}
+
+function generateDescription() {
+  let text = /*html*/ `
+    <h3>Description</h3>
+    <p>${data.description}</p>
+  `;
+
+  descriptionElement.innerHTML = text;
+}
+
 generateCarousel();
+generateAdoptionLink();
+generateInfo1Element();
+generateInfo2Element();
+generateInfo3Element();
+generateDescription();

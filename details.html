@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adopt-a-Pet</title>
+    <title>Dog-Finder</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.2.0/dist/themes/light.css"
@@ -16,22 +16,37 @@
     ></script>
   </head>
   <body>
-    <sl-carousel id="carousel" pagination navigation mouse-dragging loop>
-    </sl-carousel>
+    <div class="carousel-container">
+      <div>
+        <sl-carousel id="carousel" pagination navigation mouse-dragging loop>
+        </sl-carousel>
+      </div>
+    </div>
     <sl-divider style="--width: 4px"></sl-divider>
     <main class="container">
       <sl-card class="card-basic">
         <h2 id="animal-name"></h2>
         <sl-divider></sl-divider>
-        <a id="adoption-link" href=""></a>
         <p id="info-1"></p>
         <p id="info-2"></p>
-        <div class="info-3"></div>
-        <div class="description"></div>
+        <div id="info-3"></div>
+        <div id="description"></div>
+        <a id="adoption-link" href="" target="_blank"></a>
       </sl-card>
+      <div class="map">
+        <iframe
+          id="map"
+          width="600"
+          height="450"
+          style="border: 0"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+      </div>
     </main>
     <script src="./scripts/details.js"></script>
   </body>
+  <!-- TODO: This is here for now, but we should move it to a main/base css file that all the pages use.  -->
   <style>
     * {
       font-family: var(--sl-font-sans);

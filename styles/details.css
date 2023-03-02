@@ -1,3 +1,32 @@
 #animal-name {
   margin-top: 0;
 }
+
+.carousel-container {
+  width: 100%;
+}
+
+.carousel-container > div {
+  margin: auto;
+  max-width: 1000px;
+}
+
+#carousel {
+  --scroll-hint: 75px;
+}
+
+main {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+main > * {
+  flex: 1 0 600px;
+}
+
+.map {
+  display: flex;
+  justify-content: center;
+}
