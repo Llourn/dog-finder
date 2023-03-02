@@ -15,6 +15,10 @@
   --scroll-hint: 75px;
 }
 
+.card-basic {
+  width: 100%;
+}
+
 .animal-info-container {
   display: flex;
   gap: 1rem;
