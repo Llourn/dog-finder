@@ -163,17 +163,32 @@ renderMap();
 // Rendering functions
 
 function renderCarousel() {
-  let carouselItemsHtml = "";
-  data.photos.forEach((photo) => {
-    carouselItemsHtml += /*html*/ `
-    <sl-carousel-item>
-      <img
-        src="${photo.full}"
-      />
-    </sl-carousel-item>
+  let carouselHtml = "";
+
+  if (data.photos?.length) {
+    carouselHtml += /*html*/ `
+      <div>
+        <sl-carousel pagination navigation mouse-dragging loop>
+        
     `;
-  });
-  carouselEl.innerHTML = carouselItemsHtml;
+
+    data.photos.forEach((photo) => {
+      carouselHtml += /*html*/ `
+      <sl-carousel-item>
+        <img
+        src="${photo.full}"
+        />
+      </sl-carousel-item>
+      `;
+    });
+
+    carouselHtml += /*html*/ `
+        </sl-carousel>
+      </div>
+      `;
+
+    carouselEl.innerHTML = carouselHtml;
+  }
 }
 
 function renderName() {
