@@ -1,8 +1,9 @@
 :root {
-    --pale-blue: rgb(182, 218, 247);
-    --pale-yellow:rgb(248, 242, 152);
+    --pale-yellow:rgb(248, 226, 152);
     --pale-green: rgb(189, 240, 174);
     --dark-blue: rgb(56, 77, 145);
+    --pale-blue: rgb(148, 202, 247);
+    --copy-of-pale-yellow:rgb(248, 242, 152);
 }
 
 body {
@@ -19,52 +20,69 @@ header {
   padding: 20px;
   border-bottom: 4px solid;
   border-color: var(--dark-blue);
-  margin-bottom: 10px
+  margin-bottom: 0px;
 }
 
-.container {
+#container {
   display:flex;
   flex-wrap: wrap;
-  width: 100%;
+  max-width: 100%;
   justify-content: space-evenly;
   margin: 20px;
 }
 
-.details {
-  padding: 1.25rem;
-}
-
 sl-card {
-  min-width
-  max-width: 300px;
-  margin: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 400px;
+  margin: 40px 20px 20px 20px;
   --border-color: var(--dark-blue);
   --border-width: 3px;
   
 }
 
+sl-card img {
+  width: 394px;
+  height: 400px;
+  object-fit: cover;
+  border-width: 3px;
+  border-style: solid;
+  border-color: var(--dark-blue);
+}
+
+p {
+  display: inline-flex;
+  height: 50px;
+}
+
 sl-card::part(body) {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border-color: var(--dark-blue);
-  border-width: 5px;
+  border-width: 3px;
   color:var(--dark-blue);
+  height: 230px;
 }
 
 button {
-  height: 2.5rem;
-  width: 97.09px;
+  display: block;
+  margin: auto;
+  width: 65%;
   color: var(--dark-blue);
   border-color:var(--dark-blue);
-  background-color: var(--pale-yellow);
+  background-color:rgb(248, 235, 115);
   border-width: 3px;
-  padding: 2px;
-  font-size: 1rem;
-  font-weight:bolder;
-  border-radius: .25rem;
+  font-size: 16px;
+  font-weight: bolder;
+  border-radius: 5px;
+  height: 50px;
 }
 
 .card-overview small {
+  display: inline-flex;
+  
   color: var(--dark-blue);
+  line-height: 40px;
 }
 
 .card-overview::part(base) [slot='footer'] {
