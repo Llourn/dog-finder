@@ -182,7 +182,6 @@ function renderCarousel() {
 
   if (data.photos?.length) {
     carouselHtml += /*html*/ `
-      <div>
         <sl-carousel pagination navigation mouse-dragging loop>
     `;
 
@@ -198,7 +197,6 @@ function renderCarousel() {
 
     carouselHtml += /*html*/ `
         </sl-carousel>
-      </div>
       `;
 
     carouselEl.innerHTML = carouselHtml;

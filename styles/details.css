@@ -3,18 +3,12 @@
 }
 
 .carousel-container {
-  width: 100%;
-}
-
-.carousel-container > div {
-  margin: auto;
   max-width: 1000px;
+  margin: auto;
+  position: relative; /* WHY DOES THIS WORK?! 🤨 */
 }
 
-#carousel {
-  --scroll-hint: 75px;
-}
-
+/* Main content card with info and map */
 .card-basic {
   width: 100%;
 }
@@ -28,9 +22,4 @@
 
 .animal-info-container > * {
   flex: 1 1 500px;
-}
-
-.map {
-  display: flex;
-  justify-content: center;
 }
