@@ -1,11 +1,13 @@
 import AnimalsParameters from "./models/animals.js";
 import { fetchAnimals, fetchTypes, fetchBreeds } from "./fetchers.js";
 
-let selectInputEls = document.querySelectorAll("#petSelect sl-select");
-let textInputEls = document.querySelectorAll("#petSelect sl-input");
-let submitBtn = document.getElementById("submit");
-let locationEl = document.getElementById("location");
-let distanceEl = document.getElementById("distance");
+const selectInputEls = document.querySelectorAll("#petSelect sl-select");
+const textInputEls = document.querySelectorAll("#petSelect sl-input");
+const alertEl = document.querySelector("sl-alert");
+const submitBtn = document.getElementById("submit");
+const locationEl = document.getElementById("location");
+const distanceEl = document.getElementById("distance");
+const loadingEl = document.getElementById("loading");
 
 const typesData = await fetchTypes();
 const breedsData = await fetchBreeds("Dog");
@@ -55,6 +57,10 @@ function renderAllDynamicOptions() {
 
 async function buildApiParams(event) {
   event.preventDefault();
+
+  submitBtn.disabled = true;
+  loadingEl.classList.add("show");
+
   let paramObj = new AnimalsParameters();
 
   for (let i = 0; i < selectInputEls.length; i++) {
@@ -75,11 +81,15 @@ async function buildApiParams(event) {
   }
 
   const results = await fetchAnimals(paramObj);
-  // TODO: Handle no results gracefully.
-  // TODO: prevent double clicking submit button, provide loading indicator
-  // <sl-icon name="hypnotize"></sl-icon>
-  sessionStorage.setItem("searchResults", JSON.stringify(results));
-  window.location = "./index_results.html";
+  submitBtn.disabled = false;
+  loadingEl.classList.remove("show");
+
+  if (results?.animals.length) {
+    sessionStorage.setItem("searchResults", JSON.stringify(results));
+    window.location = "./index_results.html";
+  } else {
+    alertEl.show();
+  }
 }
 
 function convertToApiCompatible(initialValue, field) {
