@@ -1,21 +1,37 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  --border-radius: 0px;
+  --border-width: 0px;
+  --padding: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
 :root {
-    --pale-yellow:rgb(248, 226, 152);
-    --pale-green: rgb(189, 240, 174);
-    --dark-blue: rgb(56, 77, 145);
-    --pale-blue: rgb(148, 202, 247);
-    --copy-of-pale-yellow:rgb(248, 242, 152);
+  --pale-yellow:rgb(245, 217, 126);
+  --pale-green: rgb(63, 165, 102);
+  --dark-blue: rgb(25, 45, 109);
+  --pale-blue: rgb(250, 251, 252);
+  --copy-of-pale-yellow:rgb(248, 242, 152);
+  --border-blue: rgb(225, 236, 248);
+  --border-green: rgb(191, 224, 204);
 }
 
 body {
-  background-color: var(--pale-blue);
+  background-color: var(--pale-green);
+  margin: 0px;
 }
 
 header {
+  width: 100%;
   background-color: var(--pale-blue);
 }
 
 .navbar {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   justify-content: space-between;
   padding: 20px;
   border-bottom: 4px solid;
@@ -31,67 +47,121 @@ header {
   margin: 20px;
 }
 
+
+/*-------------Card Styling-------------*/
+
 sl-card {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 400px;
-  margin: 40px 20px 20px 20px;
-  --border-color: var(--dark-blue);
-  --border-width: 3px;
-  
+  margin: 20px 20px 20px 20px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: var(--dark-blue);
+  background-color: var(--pale-blue);
+  box-shadow: 0 8px 16px 0;
 }
 
 sl-card img {
-  width: 394px;
+  max-width: 400px;
   height: 400px;
   object-fit: cover;
-  border-width: 3px;
-  border-style: solid;
-  border-color: var(--dark-blue);
+  border-width: 4px;
+  border-radius: 0px;
+}
+
+slot.card__image {
+  border-width: 0px;
+  border-radius: 0px;
+}
+
+sl-card::part(header) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 400px;
+  background-color: var(--dark-blue);
+  color:var(--pale-blue);
+  height: 60px;
+  padding: 0px 15px;
+}
+
+strong {
+  font-size: 20px
+}
+
+span {
+  color:var(--pale-blue);
 }
 
 p {
-  display: inline-flex;
-  height: 50px;
+  font-weight:600;
 }
 
 sl-card::part(body) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border-color: var(--dark-blue);
-  border-width: 3px;
   color:var(--dark-blue);
-  height: 230px;
+  background-color:var(--pale-blue);
+  height: 100px;
+  width: 100%;
+  padding: 0px 15px 10px 15px;
+}
+
+sl-card::part(footer) {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-blue);
+  color:var(--pale-blue);
+  height: 60px;
 }
 
 button {
-  display: block;
   margin: auto;
-  width: 65%;
+  width: 100%;
   color: var(--dark-blue);
-  border-color:var(--dark-blue);
-  background-color:rgb(248, 235, 115);
+  border-color:var(--border-green);
+  background-color:var(--pale-blue);;
   border-width: 3px;
+  border-style: outset;
+  padding: 0px 10px 0px 10px;
   font-size: 16px;
   font-weight: bolder;
   border-radius: 5px;
-  height: 50px;
+  height: 35px;
+  cursor: pointer;
+  margin: 0px;
 }
 
-.card-overview small {
-  display: inline-flex;
-  
+button:hover {
+  background-color: var(--copy-of-pale-yellow);
+  transition: 0.7s;
+}
+
+sl-button[variant="primary"]::part(base) {
   color: var(--dark-blue);
-  line-height: 40px;
+  border-color:var(--border-green);
+  background-color:var(--pale-blue);;
+  border-width: 3px;
+  border-style: outset;
+  padding: 0px 10px 0px 10px;
+  font-size: 16px;
+  font-weight: bolder;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0px;
+  height: auto;
 }
 
-.card-overview::part(base) [slot='footer'] {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border:rgb(56, 77, 145);
+sl-button[variant="primary"]::part(base):hover {
+  background-color: var(--copy-of-pale-yellow);
+  transition: 0.7s;
 }
-
-  
-
- 
