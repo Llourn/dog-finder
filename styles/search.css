@@ -1,4 +1,4 @@
-.flex {
+.form-column-container {
   display: flex;
   gap: 1.5rem;
 }
@@ -11,10 +11,32 @@
   gap: 1.5rem;
 }
 
-.goright {
+.submit-button-container {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin: 5px;
+  gap: 0.5rem;
+}
+
+#loading {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--sl-color-primary-500);
+  animation: rotating 2s linear infinite;
+}
+
+#loading.show {
+  display: block;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 768px) {

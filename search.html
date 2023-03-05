@@ -24,7 +24,7 @@
     </p>
     <sl-divider style="--spacing: 2rem"></sl-divider>
     <form id="petSelect">
-      <div class="flex">
+      <div class="form-column-container">
         <div class="form-column">
           <sl-select label="Breed" value="" multiple clearable id="breed">
             <sl-option value="option-1">Option 1</sl-option>
@@ -125,11 +125,16 @@
           </div>
         </div>
       </div>
-      <div class="goright">
+      <div class="submit-button-container">
+        <sl-icon id="loading" name="hypnotize"></sl-icon>
         <sl-button id="submit">Submit</sl-button>
       </div>
     </form>
-
+    <sl-alert variant="warning" duration="3000" closable>
+      <sl-icon slot="icon" name="exclamation-triangle"></sl-icon>
+      <strong>Your search yielded no results</strong><br />
+      Please update the form and try again.
+    </sl-alert>
     <script
       type="module"
       src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.1.0/dist/shoelace.js"

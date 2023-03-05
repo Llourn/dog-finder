@@ -13,7 +13,6 @@ const prunedParams = (params) => {
   keysForDeleting.forEach((key) => {
     parameters.delete(key);
   });
-  console.log(parameters);
   return parameters;
 };
 
