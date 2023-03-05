@@ -5,11 +5,15 @@ addCard();
 
 //Add a card and display each animal in the search results
 function addCard() {
-for (var i = 0; i < animalsMockData.animals.length; i++) {
+  for (var i = 0; i < animalsMockData.animals.length; i++) {
     //Add an empty card to the page
     const newCard = document.createElement("sl-card");
     document.getElementById("container").appendChild(newCard);
     newCard.classList.add("card-overview");
+    const idPlace = document.createElement("div");
+    idPlace.setAttribute("display", "none");
+    let petId = animalsMockData.animals[i].id;
+    idPlace.innerHTML = petId;
     //Add a place on the card for the photo/placeholder
     //Add a placeholder in case there is no photo of an animal
     let mainPhoto = "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
@@ -19,6 +23,7 @@ for (var i = 0; i < animalsMockData.animals.length; i++) {
     }
     const imagePlace = document.createElement("img");
     newCard.appendChild(imagePlace);
+    //let 
     imagePlace.slot = "image";
     imagePlace.src = mainPhoto;
     imagePlace.alt = "a dog available for adoption";
@@ -26,6 +31,7 @@ for (var i = 0; i < animalsMockData.animals.length; i++) {
     const cardHeader = document.createElement("div");
     newCard.appendChild(cardHeader);
     cardHeader.slot = "header";
+    cardHeader.setAttribute("id", "card-header");
     //Add the animal's name and age to the card header
     let petName = animalsMockData.animals[i].name;
     const namePlace = document.createElement("strong");
@@ -35,10 +41,9 @@ for (var i = 0; i < animalsMockData.animals.length; i++) {
     if (petAge == "Baby") {
       petAge = "Puppy"
     }
-    const agePlace = document.createElement("span");
+    const agePlace = document.createElement("small");
     cardHeader.appendChild(agePlace);
     agePlace.innerHTML = petAge;
-
     let petDescription = animalsMockData.animals[i].description;
     const descriptionPlace = document.createElement("p");
     newCard.appendChild(descriptionPlace);
@@ -49,7 +54,12 @@ for (var i = 0; i < animalsMockData.animals.length; i++) {
     const infoButton = document.createElement("button");
     cardFooter.appendChild(infoButton);
     infoButton.innerHTML = "Click for More Information";
-    //infoButton.addEventListener("click", getDetails) 
-    console.log(i, petName, animalsMockData.animals[i].age)
+    infoButton.addEventListener("click", getDetails);
   }
+
+  function getDetails () {
+    window.location.href = "details.html";
+  }
+
 }
+

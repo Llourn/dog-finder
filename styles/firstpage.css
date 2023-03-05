@@ -1,14 +1,102 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  --border-radius: 0px;
+  --border-width: 0px;
+  --padding: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
+:root {
+  --pale-green: rgb(63, 165, 102);
+  --dark-blue: rgb(25, 45, 109);
+  --pale-blue: rgb(250, 251, 252);
+  --pale-yellow:rgb(248, 242, 152);
+  --border-blue: rgb(225, 236, 248);
+  --border-green: rgb(191, 224, 204);
+  --shadow-green:  rgb(6, 17, 10);
+}
+
+body {
+  background-color: var(--pale-blue);
+  color: var(--dark-blue);
+  margin: 0px;
+}
+
+
+/*-------------Header Styling-------------*/
+
+header {
+  width: 100%;
+  background-color: var(--pale-blue);
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  border-bottom: 4px solid;
+  border-top: 4px solid;
+  border-color: var(--dark-blue);
+  margin: 0px;
+}
+
+.doggo {
+  font-size: 30px;
+  background-color: var(--pale-green);
+  border-radius: 50%;
+  border-width: 3px;
+  border-style: solid;
+  border-color: var(--dark-blue);
+  padding: 5px;
+}
+
+sl-button[variant="primary"]::part(base) {
+  color: var(--pale-blue);
+  border-color:var(--dark-blue);
+  background-color:var(--pale-green);
+  border-width: 3px;
+  border-style: outset;
+  padding: 0px 10px 0px 10px;
+  font-size: 16px;
+  font-weight: bolder;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0px;
+  height: auto;
+}
+
+sl-button[variant="primary"]::part(base):hover {
+  color:var(--dark-blue);
+  background-color: var(--pale-yellow);
+  transition: 0.5s;
+}
+
+
+/*-------------Main Section Styling-------------*/
+
 .puppies{
     object-fit: cover;
     height: 600px;
     width: 100%;
-    object-position: bottom;
+    object-position: 20% 80%;
+    border-bottom: 4px solid;
+    border-color: var(--dark-blue);
   }
   
+  h1 {
+    margin:10px;
+  }
+
   .main-text {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
   }
 
   .searching {
