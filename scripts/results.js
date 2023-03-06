@@ -1,4 +1,4 @@
-import animalsMockData from "./data/animals.js";
+var searchResults = JSON.parse(sessionStorage.getItem("searchResults"));
 
 //Add a card to display each animal in the search results
 addCard();
