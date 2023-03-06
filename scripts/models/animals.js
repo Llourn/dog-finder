@@ -1,5 +1,5 @@
 export default class AnimalsParameters {
-  type = "";
+  type = "Dog";
   breed = "";
   size = "";
   gender = "";
