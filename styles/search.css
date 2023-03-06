@@ -78,6 +78,8 @@ sl-button[variant="primary"]::part(base):hover {
 .flex {
     display: flex;
     justify-content:space-evenly
+}
+
 .form-column-container {
   display: flex;
   gap: 1.5rem;
