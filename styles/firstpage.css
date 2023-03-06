@@ -30,6 +30,7 @@ body {
 header {
   width: 100%;
   background-color: var(--pale-blue);
+  font-size: 30px;
 }
 
 .navbar {
@@ -46,7 +47,6 @@ header {
 }
 
 .doggo {
-  font-size: 30px;
   background-color: var(--pale-green);
   border-radius: 50%;
   border-width: 3px;
@@ -88,7 +88,7 @@ sl-button[variant="primary"]::part(base):hover {
     border-color: var(--dark-blue);
   }
   
-  h1 {
+  h2 {
     margin:10px;
   }
 
