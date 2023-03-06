@@ -5,17 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog finder</title>
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.1.0/dist/themes/light.css" />
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/firstpage.css" />
 </head>
 
 <body>
-    <nav class="navbar">
-        <span class="doggo">🐶</span>
-        <sl-button href="#" variant="primary">Home</sl-button>
-    </nav>
+    <header>
+        <nav class="navbar">
+            <span class="doggo">🐶</span>
+            <sl-button href="#" variant="primary">Home</sl-button>
+        </nav>
+    </header>   
 
     <main>
         <img class="puppies" src="assets/puppies.jpg"/>
@@ -26,7 +28,7 @@
         </div>
 
         <div class="searching">
-            <sl-button variant="success" size="large" href="search.html">Search for a dog</sl-button>
+            <sl-button variant="primary" href="search.html">Search for a dog</sl-button>
         </div>
 
     </main>

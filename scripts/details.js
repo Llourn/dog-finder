@@ -165,7 +165,7 @@ renderMap();
 
 // Check for data in session storage and load animal. If session storage doesn't exist load Papi. 🐕
 function init() {
-  const animalsData = JSON.parse(sessionStorage.getItem("animalsData"));
+  const animalsData = JSON.parse(sessionStorage.getItem("searchResults"));
   const animalIndex = JSON.parse(sessionStorage.getItem("animalIndex"));
   const animalData = animalsData?.animals[animalIndex];
   if (animalData) {
@@ -182,7 +182,7 @@ function renderCarousel() {
 
   if (data.photos?.length) {
     carouselHtml += /*html*/ `
-        <sl-carousel pagination navigation mouse-dragging loop>
+        <sl-carousel pagination navigation mouse-dragging loop class="aspect-ratio" style="--aspect-ratio: 1/1;">
     `;
 
     data.photos.forEach((photo) => {
