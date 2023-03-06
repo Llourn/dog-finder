@@ -78,24 +78,24 @@ sl-button[variant="primary"]::part(base):hover {
 .flex {
     display: flex;
     justify-content:space-evenly
+.form-column-container {
+  display: flex;
+  gap: 1.5rem;
 }
 
 .column1 {
     display: flex;
     flex-direction: column;
-    width: 40%;
-    margin: 10px;
+    width: 50%;
+    margin: 5px;
 }
 
-.column2 {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    margin: 10px;
-}
-
-sl-select, sl-input {
-    margin: 10px;
+.submit-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 5px;
+  gap: 0.5rem;
 }
 
 .goright{
@@ -134,7 +134,7 @@ sl-select, sl-input {
         width: 100%;
     }
 
-    .column2{
-        width: 100%
-    }
+  .form-column {
+    width: 100%;
+  }
 }

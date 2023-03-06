@@ -6,8 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dog finder</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.1.0/dist/themes/light.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.1.0/dist/themes/light.css"
+    />
     <link rel="stylesheet" href="styles/search.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <span class="doggo">🐶</span>
+      <sl-button href="index.html" variant="primary">Home</sl-button>
+    </nav>
+    <p>
+      Please fill out the form below and we'll do our best to find what you're
+      looking for. There are no required fields. 🐾
+    </p>
+    <sl-divider style="--spacing: 2rem"></sl-divider>
+    <form id="petSelect">
+      <div class="form-column-container">
+        <div class="form-column">
+          <sl-select label="Breed" value="" multiple clearable id="breed">
+            <sl-option value="option-1">Option 1</sl-option>
+            <sl-option value="option-2">Option 2</sl-option>
+            <sl-option value="option-3">Option 3</sl-option>
+            <sl-option value="option-4">Option 4</sl-option>
+            <sl-option value="option-5">Option 5</sl-option>
+            <sl-option value="option-6">Option 6</sl-option>
+          </sl-select>
     
 </head>
 <body>
@@ -64,75 +90,30 @@
     <sl-option value="option-6">Option 6</sl-option>
   </sl-select>
 
-  <!-- <div id="size">
-    <p>What size?</p>
-      <sl-checkbox value="small">Small</sl-checkbox>
-      <sl-checkbox value="medium">Medium</sl-checkbox>
-      <sl-checkbox value="large">Large</sl-checkbox>
-      <sl-checkbox value="xlarge">Extra large</sl-checkbox>
-  </div> -->
+          <sl-select label="Size" value="" multiple clearable id="size">
+            <sl-option value="small">Small</sl-option>
+            <sl-option value="medium">Medium</sl-option>
+            <sl-option value="large">Large</sl-option>
+            <sl-option value="xlarge">Extra large</sl-option>
+          </sl-select>
 
-  <sl-select label="What size?" value="" multiple clearable id="size" placeholder="Select all that apply">
-    <sl-option value="small">Small</sl-option>
-    <sl-option value="medium">Medium</sl-option>
-    <sl-option value="large">Large</sl-option>
-    <sl-option value="xlarge">Extra large</sl-option>
-  </sl-select>
+          <sl-select label="Gender" value="" multiple clearable id="gender">
+            <sl-option value="option-1">Option 1</sl-option>
+            <sl-option value="option-2">Option 2</sl-option>
+            <sl-option value="option-3">Option 3</sl-option>
+            <sl-option value="option-4">Option 4</sl-option>
+          </sl-select>
 
-  <!-- <div id="gender">
-    <p>What gender?</p>
-      <sl-checkbox value="male">Male</sl-checkbox>
-      <sl-checkbox value="female">Female</sl-checkbox>
-  </div> -->
+          <sl-select label="Age" value="" multiple clearable id="age">
+            <sl-option value="baby">Puppy</sl-option>
+            <sl-option value="young">Young</sl-option>
+            <sl-option value="adult">Adult</sl-option>
+            <sl-option value="senior">Senior</sl-option>
+          </sl-select>
 
-  <sl-select label="What gender?" value="" multiple clearable id="gender" placeholder="Select all that apply">
-    <sl-option value="option-1">Option 1</sl-option>
-    <sl-option value="option-2">Option 2</sl-option>
-    <sl-option value="option-3">Option 3</sl-option>
-    <sl-option value="option-4">Option 4</sl-option>
-  </sl-select>
-
-  <!-- <div id="age">
-    <p>What its age?</p>
-      <sl-checkbox value="baby">Baby</sl-checkbox>
-      <sl-checkbox value="young">Young</sl-checkbox>
-      <sl-checkbox value="adult">Adult</sl-checkbox>
-      <sl-checkbox value="senior">Senior</sl-checkbox>
-  </div> -->
-
-  <sl-select label="What age?" value="" multiple clearable id="age" placeholder="Select all that apply">
-    <sl-option value="baby">Puppy</sl-option>
-    <sl-option value="young">Young</sl-option>
-    <sl-option value="adult">Adult</sl-option>
-    <sl-option value="senior">Senior</sl-option>
-  </sl-select>
-
-  <!-- <div id="color">
-    <p>What color?</p>
-    <sl-checkbox value="test1">Checkbox</sl-checkbox>
-    <sl-checkbox value="test2">Checkbox</sl-checkbox>
-    <sl-checkbox value="test3">Checkbox</sl-checkbox>
-    <sl-checkbox value="test4">Checkbox</sl-checkbox>
-    <sl-checkbox value="test5">Checkbox</sl-checkbox>
-    <sl-checkbox value="test6">Checkbox</sl-checkbox>
-    <sl-checkbox value="test7">Checkbox</sl-checkbox>
-    <sl-checkbox value="test8">Checkbox</sl-checkbox>
-    <sl-checkbox value="test9">Checkbox</sl-checkbox>
-    <sl-checkbox value="test10">Checkbox</sl-checkbox>
-    <sl-checkbox value="test11">Checkbox</sl-checkbox>
-    <sl-checkbox value="test12">Checkbox</sl-checkbox>
-    <sl-checkbox value="test13">Checkbox</sl-checkbox>
-    <sl-checkbox value="test14">Checkbox</sl-checkbox>
-    <sl-checkbox value="test15">Checkbox</sl-checkbox>
-    <sl-checkbox value="test16">Checkbox</sl-checkbox>
-  </div> -->
-
-  <sl-select label="What colour?" value="" multiple clearable id="color" placeholder="Select all that apply">
-    <sl-option value="option-1">Option 1</sl-option>
-    <sl-option value="option-2">Option 2</sl-option>
-    <sl-option value="option-3">Option 3</sl-option>
-    <sl-option value="option-4">Option 4</sl-option>
-  </sl-select>
+          <sl-select label="Color" value="" multiple clearable id="color">
+            <sl-option value="option-1">Option 1</sl-option>
+            <sl-option value="option-2">Option 2</sl-option>
 
   <!-- <div id="coat">
     <p>What kind of coat?</p>
@@ -144,7 +125,7 @@
       <sl-checkbox value="curly">Curly</sl-checkbox>
   </div> -->
 
-  <sl-select label="What coat length?" value="" multiple clearable id="coat" placeholder="Select all that apply">
+  <sl-select label="What lenght of coat?" value="" multiple clearable id="coat">
     <sl-option value="option-1">Option 1</sl-option>
     <sl-option value="option-2">Option 2</sl-option>
     <sl-option value="option-3">Option 3</sl-option>
@@ -154,84 +135,75 @@
 
   </div>
 
-  <div class="column2">
-      <sl-input label="What name?" id="name"></sl-input>
-<!-- 
-      <sl-radio-group label="Is it good with children?" name="children" value="1" id="good_with_children">
-        <sl-radio-button value="1">Yes</sl-radio-button>
-        <sl-radio-button value="0">No</sl-radio-button>
-      </sl-radio-group>
+        <div class="form-column">
+          <sl-input label="Name" id="name"></sl-input>
 
-      <sl-radio-group label="Is it good with other cats?" name="cats" value="1" id="good_with_cats">
-        <sl-radio-button value="1">Yes</sl-radio-button>
-        <sl-radio-button value="0">No</sl-radio-button>
-      </sl-radio-group>
+          <sl-select
+            label="Good with"
+            id="good_with"
+            value="good_with"
+            multiple
+            clearable
+          >
+            <sl-option value="good_with_children" id="good_with_children"
+              >Children</sl-option
+            >
+            <sl-option value="good_with_cats" id="good_with_cats"
+              >Other cats</sl-option
+            >
+            <sl-option value="good_with_dogs" id="good_with_dogs"
+              >Other dogs</sl-option
+            >
+          </sl-select>
 
-      <sl-radio-group label="Is it good with other dogs?" name="dogs" value="1" id="good_with_dogs">
-        <sl-radio-button value="1">Yes</sl-radio-button>
-        <sl-radio-button value="0">No</sl-radio-button>
-      </sl-radio-group>
+          <sl-select label="Care & behavior" id="attributes" multiple clearable>
+            <sl-option value="house_trained" id="house_trained"
+              >Is house trained</sl-option
+            >
+            <sl-option value="special_needs" id="special_needs"
+              >Need special needs</sl-option
+            >
+          </sl-select>
 
-      <sl-radio-group label="Is it house trained?" name="housetrained" value="1" id="house_trained">
-        <sl-radio-button value="1">Yes</sl-radio-button>
-        <sl-radio-button value="0">No</sl-radio-button>
-      </sl-radio-group>
+          <sl-input
+            label="Location (Postal or Zip Code)"
+            id="location"
+          ></sl-input>
 
-      <sl-radio-group label="Is it declawed?" name="declawed" value="1" id="declawed">
-        <sl-radio-button value="1">Yes</sl-radio-button>
-        <sl-radio-button value="0">No</sl-radio-button>
-      </sl-radio-group>
+          <sl-input
+            label="Distance (max 500, requires location)"
+            type="number"
+            id="distance"
+            max="500"
+            disabled
+          ></sl-input>
 
-      <sl-radio-group label="Does it have special needs?" name="specialneeds" value="1" id="special_needs">
-        <sl-radio-button value="1">Yes</sl-radio-button>
-        <sl-radio-button value="0">No</sl-radio-button>
-      </sl-radio-group> -->
-
-      <sl-select label="Good with..." value="" multiple clearable placeholder="Select all that apply">
-        <sl-option value="option-1" id="good_with_children">Children</sl-option>
-        <sl-option value="option-2" id="good_with_cats">Other cats</sl-option>
-        <sl-option value="option-3" id="good_with_dogs">Other dogs</sl-option>
-      </sl-select>
-
-      
-      <sl-select label="Care & Behaviour" value="" multiple clearable placeholder="Select all that apply">
-        <sl-option value="option-1" id="house_trained">Is house trained</sl-option>
-        <sl-option value="option-2" id="declawed">Is declawed</sl-option>
-        <sl-option value="option-3" id="special_needs">Has special needs</sl-option>
-      </sl-select>
-
-      <sl-input label="Where is the pet located?" id="location" ></sl-input>
-
-      <sl-input label="How far away? (in miles)" id="distance"></sl-input>
-
-      <div class="searchitem">
-
-        <sl-select label="Sort result by" value="recent" id="sort">
-          <sl-option value="recent">Most to least recent</sl-option>
-          <sl-option value="-recent">Least to most recent</sl-option>
-          <sl-option value="distance">Nearest to furthest</sl-option>
-          <sl-option value="-distance">Furthest to nearest</sl-option>
-          <sl-option value="random">Random</sl-option>
-        </sl-select>
-
-      <!-- <sl-radio-group label="Sort the result by" name="sortresult" value="recent" id="sort">
-        <sl-radio-button value="recent">Most recent</sl-radio-button>
-        <sl-radio-button value="-recent">Less recent</sl-radio-button>
-        <sl-radio-button value="distance">Closer to you</sl-radio-button>
-        <sl-radio-button value="-distance">Furter away from you</sl-radio-button>
-        <sl-radio-button value="random">Random</sl-radio-button>
-      </sl-radio-group> -->
+          <div class="searchitem">
+            <sl-select label="Sort result by" value="recent" id="sort">
+              <sl-option value="recent">Most recent</sl-option>
+              <sl-option value="-recent">Less recent</sl-option>
+              <sl-option value="distance">Closer to you</sl-option>
+              <sl-option value="-distance">Further away from you</sl-option>
+              <sl-option value="random">Random</sl-option>
+            </sl-select>
+          </div>
+        </div>
       </div>
-  </div>
-  </div>
-  <div class="goright">
-      <sl-button id="submit">Submit</sl-button>
-  </div>
+      <div class="submit-button-container">
+        <sl-icon id="loading" name="hypnotize"></sl-icon>
+        <sl-button id="submit">Submit</sl-button>
+      </div>
     </form>
-
-      <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.1.0/dist/shoelace.js"></script>
-    <!-- <script type="module" src="./scripts/main.js"></script> -->
+    <sl-alert variant="warning" duration="3000" closable>
+      <sl-icon slot="icon" name="exclamation-triangle"></sl-icon>
+      <strong>Your search yielded no results</strong><br />
+      Please update the form and try again.
+    </sl-alert>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.1.0/dist/shoelace.js"
+    ></script>
+    <script type="module" src="./scripts/main.js"></script>
+    <script type="module" src="./scripts/search.js"></script>
   </body>
 </html>
-
-

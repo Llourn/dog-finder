@@ -1,4 +1,5 @@
-const baseUrl = "https://warm-shore-80646.herokuapp.com/";
+let baseUrl = "https://warm-shore-80646.herokuapp.com/";
+// baseUrl = "http://localhost:3000/";
 
 // Removes all null, undefined, 0, or empty string value prperties from any object passed in to it.
 // This is to clean up the unused parameters for a fetch request.
@@ -12,13 +13,12 @@ const prunedParams = (params) => {
   keysForDeleting.forEach((key) => {
     parameters.delete(key);
   });
-  console.log(parameters);
   return parameters;
 };
 
 // fetches animals and all parameters provided in the AnimalParameters class
 export const fetchAnimals = async (params) => {
-  let response = await fetch(`${baseUrl}"animals?"${prunedParams(params)}`);
+  let response = await fetch(`${baseUrl}animals?${prunedParams(params)}`);
   return await response.json();
 };
 

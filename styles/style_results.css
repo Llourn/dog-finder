@@ -8,6 +8,16 @@
   margin-block-end: 0px;
 }
 
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  --border-radius: 0px;
+  --border-width: 0px;
+  --padding: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
 :root {
   --pale-green: rgb(63, 165, 102);
   --dark-blue: rgb(25, 45, 109);
@@ -21,6 +31,8 @@
 body {
   background-color: var(--pale-green);
   margin: 0px;
+  background-color: var(--pale-green);
+  margin: 0px;
 }
 
 
@@ -28,11 +40,14 @@ body {
 
 header {
   width: 100%;
+  width: 100%;
   background-color: var(--pale-blue);
   }
 
 .navbar {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
@@ -103,6 +118,7 @@ sl-card {
 
 sl-card img {
   max-width: 400px;
+  max-width: 400px;
   height: 400px;
   object-fit: cover;
   border-width: 4px;
@@ -137,9 +153,14 @@ small {
 
 p {
   font-weight:600;
+  font-weight:600;
 }
 
 sl-card::part(body) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
