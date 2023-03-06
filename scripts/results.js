@@ -1,26 +1,28 @@
-var animalsData = JSON.parse(sessionStorage.getItem("searchResults"));
-
+import animalsMockData from "./data/animals.js";
+var searchResults = animalsMockData;
+sessionStorage.setItem("animalsData", JSON.stringify(searchResults));
+var searchResults = JSON.parse(sessionStorage.getItem("animalsData"));
+console.log(searchResults);
 //Add a card to display each animal in the search results
 addCard();
 
 //Add a card and display each animal in the search results
 function addCard() {
-  for (var i = 0; i < animalsData.animals.length; i++) {
+  for (var i = 0; i < searchResults.animals.length; i++) {
     //Add an empty card to the page
     const newCard = document.createElement("sl-card");
     document.getElementById("container").appendChild(newCard);
     newCard.classList.add("card-overview");
-    const idPlace = document.createElement("div");
-    idPlace.setAttribute("display", "none");
-    let petId = animalsData.animals[i].id;
-    idPlace.innerHTML = petId;
+    const indexPlace = document.createElement("div");
+    indexPlace.setAttribute("display", "none");
+    indexPlace.innerHTML = i; 
     //Add a place on the card for the photo/placeholder
     //Add a placeholder in case there is no photo of an animal
     let mainPhoto =
       "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
     //If the animal has a photo, add it to the card
-    if (animalsData.animals[i].primary_photo_cropped !== null) {
-      mainPhoto = animalsData.animals[i].primary_photo_cropped.small;
+    if (searchResults.animals[i].primary_photo_cropped !== null) {
+      mainPhoto = searchResults.animals[i].primary_photo_cropped.small;
     }
     const imagePlace = document.createElement("img");
     newCard.appendChild(imagePlace);
@@ -33,18 +35,18 @@ function addCard() {
     cardHeader.slot = "header";
     cardHeader.setAttribute("id", "card-header");
     //Add the animal's name and age to the card header
-    let petName = animalsData.animals[i].name;
+    let petName = searchResults.animals[i].name;
     const namePlace = document.createElement("strong");
     cardHeader.appendChild(namePlace);
     namePlace.innerHTML = petName;
-    let petAge = animalsData.animals[i].age;
+    let petAge = searchResults.animals[i].age;
     if (petAge == "Baby") {
       petAge = "Puppy";
     }
     const agePlace = document.createElement("small");
     cardHeader.appendChild(agePlace);
     agePlace.innerHTML = petAge;
-    let petDescription = animalsData.animals[i].description;
+    let petDescription = searchResults.animals[i].description;
     const descriptionPlace = document.createElement("p");
     newCard.appendChild(descriptionPlace);
     descriptionPlace.innerHTML = petDescription;
@@ -54,10 +56,10 @@ function addCard() {
     const infoButton = document.createElement("button");
     cardFooter.appendChild(infoButton);
     infoButton.innerHTML = "Click for More Information";
-    infoButton.addEventListener("click", getDetails);
-  }
-
-  function getDetails() {
-    window.location.href = "details.html";
+    infoButton.addEventListener("click", function() {
+      sessionStorage.setItem("animalIndex", JSON.stringify(indexPlace.innerHTML));
+      console.log(indexPlace.innerHTML);
+      window.location.href = "details.html";
+    });
   }
 }
