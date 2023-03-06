@@ -8,6 +8,7 @@ const submitBtn = document.getElementById("submit");
 const locationEl = document.getElementById("location");
 const distanceEl = document.getElementById("distance");
 const loadingEl = document.getElementById("loading");
+const petSelectEl = document.getElementById("petSelect");
 
 const typesData = await fetchTypes();
 const breedsData = await fetchBreeds("Dog");
@@ -24,6 +25,8 @@ locationEl.addEventListener("input", function () {
 });
 
 submitBtn.addEventListener("click", buildApiParams);
+
+petSelectEl.addEventListener("submit", (event) => event.preventDefault());
 
 function addOptionsToForm(elementId) {
   // get field via ID
