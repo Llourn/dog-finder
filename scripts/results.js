@@ -1,8 +1,4 @@
-import animalsMockData from "./data/animals.js";
-var searchResults = animalsMockData;
-sessionStorage.setItem("animalsData", JSON.stringify(searchResults));
-var searchResults = JSON.parse(sessionStorage.getItem("animalsData"));
-console.log(searchResults);
+var searchResults = JSON.parse(sessionStorage.getItem("searchResults"));
 //Add a card to display each animal in the search results
 addCard();
 
@@ -15,7 +11,7 @@ function addCard() {
     newCard.classList.add("card-overview");
     const indexPlace = document.createElement("div");
     indexPlace.setAttribute("display", "none");
-    indexPlace.innerHTML = i; 
+    indexPlace.innerHTML = i;
     //Add a place on the card for the photo/placeholder
     //Add a placeholder in case there is no photo of an animal
     let mainPhoto =
@@ -56,8 +52,11 @@ function addCard() {
     const infoButton = document.createElement("button");
     cardFooter.appendChild(infoButton);
     infoButton.innerHTML = "Click for More Information";
-    infoButton.addEventListener("click", function() {
-      sessionStorage.setItem("animalIndex", JSON.stringify(indexPlace.innerHTML));
+    infoButton.addEventListener("click", function () {
+      sessionStorage.setItem(
+        "animalIndex",
+        JSON.stringify(indexPlace.innerHTML)
+      );
       console.log(indexPlace.innerHTML);
       window.location.href = "details.html";
     });
