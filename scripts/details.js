@@ -165,7 +165,7 @@ renderMap();
 
 // Check for data in session storage and load animal. If session storage doesn't exist load Papi. 🐕
 function init() {
-  const animalsData = JSON.parse(sessionStorage.getItem("animalsData"));
+  const animalsData = JSON.parse(sessionStorage.getItem("searchResults"));
   const animalIndex = JSON.parse(sessionStorage.getItem("animalIndex"));
   const animalData = animalsData?.animals[animalIndex];
   if (animalData) {
