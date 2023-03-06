@@ -182,7 +182,7 @@ function renderCarousel() {
 
   if (data.photos?.length) {
     carouselHtml += /*html*/ `
-        <sl-carousel pagination navigation mouse-dragging loop>
+        <sl-carousel pagination navigation mouse-dragging loop class="aspect-ratio" style="--aspect-ratio: 1/1;">
     `;
 
     data.photos.forEach((photo) => {

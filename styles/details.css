@@ -76,7 +76,7 @@ sl-button[variant="primary"]::part(base):hover {
 }
 
 .carousel-container {
-  max-width: 1000px;
+  max-width: 800px;
   margin: 30px auto 20px auto;
   position: relative; /* WHY DOES THIS WORK?! 🤨 */
 }
@@ -89,6 +89,10 @@ button::part(carousel__pagination-item--active) {
   border-style: solid;
   border-width: 4px;
   border-color: var(--dark-blue);
+}
+
+img {
+  height: 100%;
 }
 
 /* Main content card with info and map */
@@ -132,4 +136,3 @@ h2 {
 #adoption-link:hover {
   color:var(--pale-green);
 }
-
