@@ -8,36 +8,89 @@
   margin-block-end: 0px;
 }
 
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  --border-radius: 0px;
+  --border-width: 0px;
+  --padding: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
 :root {
-  --pale-yellow:rgb(245, 217, 126);
   --pale-green: rgb(63, 165, 102);
   --dark-blue: rgb(25, 45, 109);
   --pale-blue: rgb(250, 251, 252);
-  --copy-of-pale-yellow:rgb(248, 242, 152);
+  --pale-yellow:rgb(248, 242, 152);
   --border-blue: rgb(225, 236, 248);
   --border-green: rgb(191, 224, 204);
+  --shadow-green:  rgb(6, 17, 10);
 }
 
 body {
   background-color: var(--pale-green);
   margin: 0px;
+  background-color: var(--pale-green);
+  margin: 0px;
 }
+
+
+/*-------------Header Styling-------------*/
 
 header {
   width: 100%;
+  width: 100%;
   background-color: var(--pale-blue);
-}
+  }
 
 .navbar {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  flex-wrap: wrap;
+  width: 100%;
   justify-content: space-between;
-  padding: 20px;
+  align-items: center;
+  padding: 15px 60px;
   border-bottom: 4px solid;
+  border-top: 4px solid;
   border-color: var(--dark-blue);
-  margin-bottom: 0px;
 }
+
+.doggo {
+  font-size: 30px;
+  background-color: var(--pale-green);
+  border-radius: 50%;
+  border-width: 3px;
+  border-style: solid;
+  border-color: var(--dark-blue);
+  padding: 5px;
+}
+
+sl-button[variant="primary"]::part(base) {
+  color: var(--pale-blue);
+  border-color:var(--dark-blue);
+  background-color:var(--pale-green);
+  border-width: 3px;
+  border-style: outset;
+  padding: 0px 10px 0px 10px;
+  font-size: 16px;
+  font-weight: bolder;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0px;
+  height: auto;
+}
+
+sl-button[variant="primary"]::part(base):hover {
+  color:var(--dark-blue);
+  background-color: var(--pale-yellow);
+  transition: 0.5s;
+}
+
+
+/*-------------Main Container Styling-------------*/
 
 #container {
   display:flex;
@@ -48,22 +101,23 @@ header {
 }
 
 
-/*-------------Card Styling-------------*/
+/*-------------Display Cards Styling-------------*/
 
 sl-card {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 400px;
+  width: 400px;
   margin: 20px 20px 20px 20px;
   border-style: solid;
   border-width: 4px;
   border-color: var(--dark-blue);
   background-color: var(--pale-blue);
-  box-shadow: 0 8px 16px 0;
+  box-shadow: 0 8px 20px 0;
 }
 
 sl-card img {
+  max-width: 400px;
   max-width: 400px;
   height: 400px;
   object-fit: cover;
@@ -76,12 +130,12 @@ slot.card__image {
   border-radius: 0px;
 }
 
-sl-card::part(header) {
+#card-header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  max-width: 400px;
+  width: 100%;
   background-color: var(--dark-blue);
   color:var(--pale-blue);
   height: 60px;
@@ -90,13 +144,15 @@ sl-card::part(header) {
 
 strong {
   font-size: 20px
+
 }
 
-span {
+small {
   color:var(--pale-blue);
 }
 
 p {
+  font-weight:600;
   font-weight:600;
 }
 
@@ -105,12 +161,19 @@ sl-card::part(body) {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color:var(--dark-blue);
   background-color:var(--pale-blue);
   height: 100px;
-  width: 100%;
   padding: 0px 15px 10px 15px;
+}
+
+sl-card::part(base) {
+  width: 100%;
 }
 
 sl-card::part(footer) {
@@ -128,10 +191,10 @@ button {
   margin: auto;
   width: 100%;
   color: var(--dark-blue);
-  border-color:var(--border-green);
-  background-color:var(--pale-blue);;
+  border-color: var(--pale-green) var(--shadow-green) var(--shadow-green) var(--pale-green);
+  background-color: var(--pale-blue);;
   border-width: 3px;
-  border-style: outset;
+  border-style: solid;
   padding: 0px 10px 0px 10px;
   font-size: 16px;
   font-weight: bolder;
@@ -142,26 +205,6 @@ button {
 }
 
 button:hover {
-  background-color: var(--copy-of-pale-yellow);
-  transition: 0.7s;
-}
-
-sl-button[variant="primary"]::part(base) {
-  color: var(--dark-blue);
-  border-color:var(--border-green);
-  background-color:var(--pale-blue);;
-  border-width: 3px;
-  border-style: outset;
-  padding: 0px 10px 0px 10px;
-  font-size: 16px;
-  font-weight: bolder;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 0px;
-  height: auto;
-}
-
-sl-button[variant="primary"]::part(base):hover {
-  background-color: var(--copy-of-pale-yellow);
-  transition: 0.7s;
+  background-color: var(--pale-yellow);
+  transition: 0.5s;
 }
