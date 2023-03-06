@@ -22,6 +22,10 @@ In order to run this project locally, you will need [VScode](https://code.visual
 
 Dog Finder's live site can be found here: https://llourn.github.io/bc-project-1/
 
+
+https://user-images.githubusercontent.com/4216705/223214377-0afbdebc-09ba-4e3d-bd4c-09e04bb84cd4.mov
+
+
 Once you arrive at the landing page you'll be greeted by an army of puppies along with a button to access a form to enter all the criteria for your search. Fill in as many or as few fields as you'd like to search, and if you need to tweak the parameters of your search just click `Back` in your browser and your form will retain the values from your last search.
 
 With any luck we'll find some elligible canines for you to browse and should any of them catch your eye simply click the button on the card to retrieve more information. Should you wish to adopt, just click the link at the bottom of the page and you'll be directed to PetFinder.com to complete the process. At any time you can click the home button in the nav bar to take you back to the landing page.
