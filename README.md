@@ -2,11 +2,7 @@
 
 ## Description
 
-This app was created to provide a user access to search for adoptable dogs with the ability to see their location.
-The user is able to search for and display dogs based on characteristics like breed, size, gender, etc.
-It uses the Petfinder API and the Google maps API:
-https://www.petfinder.com/developers/v2/docs/#api-calls
-https://developers.google.com/maps/
+This app was created to provide a user access to search for adoptable dogs with the ability to see their location. The user is able to search for and display dogs based on characteristics like breed, size, gender, etc. It uses the [Petfinder API](https://www.petfinder.com/developers/v2/docs/#api-calls) and the [Google maps API](https://developers.google.com/maps/).
 
 ## Table of Contents (Optional)
 
@@ -20,11 +16,15 @@ https://developers.google.com/maps/
 
 ## Installation
 
-In order to run this project locally, you will need VScode with Live Server extention.
+In order to run this project locally, you will need [VScode](https://code.visualstudio.com/download) with [Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 
 ## Usage
 
-To use our website, you would go to the URL https://llourn.github.io/bc-project-1/. You will be present with the main page of the project. You can scroll down and click on "search for a dog" to start the process. You will be presented with option for dog breed, size, gender, location, etc. Once you are done with your selection, click on the submit button. It will direct you to a result page, with the parameter you choose for dogs to adopt. You can then click on a card to be directed to another page, which will give you more information about the dog in question, and its location. At any time you can click on the "home" button on the top right to be brought back at the main page. You can also back up from your current page, and you choices will be save in session storage.
+Dog Finder's live site can be found here: https://llourn.github.io/bc-project-1/
+
+Once you arrive at the landing page you'll be greeted by an army of puppies along with a button to access a form to enter all the criteria for your search. Fill in as many or as few fields as you'd like to search, and if you need to tweak the parameters of your search just click `Back` in your browser and your form will retain the values from your last search.
+
+With any luck we'll find some elligible canines for you to browse and should any of them catch your eye simply click the button on the card to retrieve more information. Should you wish to adopt, just click the link at the bottom of the page and you'll be directed to PetFinder.com to complete the process. At any time you can click the home button in the nav bar to take you back to the landing page.
 
 ## Credits
 
@@ -38,6 +38,10 @@ Contributors:
 
 [Valerigionetnoel](https://github.com/Valerigionetnoel)
 
+Assets:
+
+Landing page Photo by [Bharathi Kannan](https://unsplash.com/@bk010397?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/images/animals/puppies?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+
 ## License
 
 MIT License
@@ -49,12 +53,14 @@ MIT License
 ## Features
 
 Some feature of this website are:
-- You can search for dogs to adopt.
-- You get result depending on parameter that you specified.
-- You can see the location of the dog to adopt on a map.
+
+- Find lovable cuddle-monsters to claim as your own!
+- There are numerous search parameters to choose from to help you narrow down your search to that perfect dog.
+- Had to expand your search to a location further away? No problem! Google maps will display the location of the prospective adoptee so you can plan that road trip.
 
 ## Wishlist
 
 Things that we would like to add in a future update would be:
-- More animal choices.
-- Adding search by organisation.
+
+- More animals! Cats, rabbits, chinchillas, bearded dragons... etc.
+- Implement search by organization.
