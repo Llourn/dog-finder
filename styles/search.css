@@ -75,6 +75,49 @@ sl-button[variant="primary"]::part(base):hover {
   transition: 0.5s;
 }
 
+.form-column-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  border-bottom: 4px solid;
+  border-top: 4px solid;
+  border-color: var(--dark-blue);
+}
+
+.doggo {
+  font-size: 30px;
+  background-color: var(--pale-green);
+  border-radius: 50%;
+  border-width: 3px;
+  border-style: solid;
+  border-color: var(--dark-blue);
+  padding: 5px;
+}
+
+sl-button[variant="primary"]::part(base) {
+  color: var(--pale-blue);
+  border-color:var(--dark-blue);
+  background-color:var(--pale-green);
+  border-width: 3px;
+  border-style: outset;
+  padding: 0px 10px 0px 10px;
+  font-size: 16px;
+  font-weight: bolder;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0px;
+  height: auto;
+}
+
+sl-button[variant="primary"]::part(base):hover {
+  color:var(--dark-blue);
+  background-color: var(--pale-yellow);
+  transition: 0.5s;
+}
+
 .flex {
     display: flex;
     justify-content:space-evenly
@@ -95,13 +138,19 @@ sl-button[variant="primary"]::part(base):hover {
   justify-content: flex-end;
   align-items: center;
   margin: 5px;
+  margin-top: 1.5rem;
   gap: 0.5rem;
 }
 
-.goright{
-    display: flex;
-    justify-content: center;
-    margin: 5px;
+#loading {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--pale-blue);
+  animation: rotating 2s linear infinite;
+}
+
+#loading.show {
+  display: block;
 }
 
 #submit::part(base) {
@@ -130,11 +179,34 @@ sl-button[variant="primary"]::part(base):hover {
         display: block;
     }
 
-    .column1{
-        width: 100%;
-    }
-
-  .form-column {
-    width: 100%;
+#submit::part(base) {
+    color: var(--dark-blue);
+    border-color:var(--dark-blue);
+    background-color:var(--pale-blue);
+    border-width: 3px;
+    border-style: outset;
+    padding: 0px 10px 0px 10px;
+    font-size: 16px;
+    font-weight: bolder;
+    border-radius: 5px;
+    cursor: pointer;
+    height: auto;
   }
-}
+  
+  #submit::part(base):hover {
+    color:var(--dark-blue);
+    background-color: var(--pale-yellow);
+    transition: 0.5s;
+  }
+  
+  @media (max-width: 768px) {
+    .form-column-container {
+      flex-direction: column;
+      margin: 1rem;
+    }
+  
+    .form-column {
+      width: 100%;
+      margin: 0;
+    }
+  }

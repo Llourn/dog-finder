@@ -60,6 +60,7 @@ async function buildApiParams(event) {
 
   submitBtn.disabled = true;
   loadingEl.classList.add("show");
+  sessionStorage.removeItem("searchResults");
 
   let paramObj = new AnimalsParameters();
 
@@ -84,9 +85,9 @@ async function buildApiParams(event) {
   submitBtn.disabled = false;
   loadingEl.classList.remove("show");
 
-  if (results?.animals.length) {
+  if (results?.animals?.length) {
     sessionStorage.setItem("searchResults", JSON.stringify(results));
-    window.location = "./index_results.html";
+    window.location = "./results.html";
   } else {
     alertEl.show();
   }
