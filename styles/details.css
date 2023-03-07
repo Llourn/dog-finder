@@ -30,6 +30,8 @@ body {
 header {
   width: 100%;
   background-color: var(--pale-blue);
+  font-size: 30px;
+  color: var(--dark-blue)
 }
 
 .navbar {
@@ -75,10 +77,11 @@ sl-button[variant="primary"]::part(base):hover {
   transition: 0.5s;
 }
 
+
 .carousel-container {
   max-width: 800px;
   margin: 30px auto 20px auto;
-  position: relative; /* WHY DOES THIS WORK?! 🤨 */
+  position: top; /* WHY DOES THIS WORK?! 🤨 */
 }
 
 button::part(carousel__pagination-item--active) {
@@ -136,3 +139,4 @@ h2 {
 #adoption-link:hover {
   color:var(--pale-green);
 }
+

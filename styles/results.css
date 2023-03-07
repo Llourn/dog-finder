@@ -42,6 +42,8 @@ header {
   width: 100%;
   width: 100%;
   background-color: var(--pale-blue);
+  font-size: 30px;
+  color: var(--dark-blue);
   }
 
 .navbar {
