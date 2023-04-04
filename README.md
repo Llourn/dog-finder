@@ -20,7 +20,7 @@ In order to run this project locally, you will need [VScode](https://code.visual
 
 ## Usage
 
-Dog Finder's live site can be found here: https://llourn.github.io/bc-project-1/
+<!-- Dog Finder's live site can be found here: https://llourn.github.io/bc-project-1/ -->
 
 
 https://user-images.githubusercontent.com/4216705/223214377-0afbdebc-09ba-4e3d-bd4c-09e04bb84cd4.mov
